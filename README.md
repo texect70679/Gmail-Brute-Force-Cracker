@@ -1,4 +1,6 @@
-###LBT-Cracker
+LBT-Cracker
+
+
 LBT-Cracker是一個開源的Gmail密碼暴力登入嘗試工具
 
 用法:
