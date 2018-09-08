@@ -16,8 +16,9 @@ def GetArgc():
     if len(sys.argv) == 1:
         printRed('\nCommand line useage:' + sys.argv[
             0] + ' ' + '[-u/--user] <User name> [-w/--wordlist] <Path of wordlist file>\n')
-        file_path = raw_input("\nInput password list path(Path don\'t include: \") \n>")
-        file_path.strip('"')
+        file_path = raw_input("\nInput password list path \n>")
+        file_path = file_path.strip()
+        file_path = file_path.strip('\"')
         mail = raw_input('\nEmail \n>')
     else:
         for i in range(1, len(sys.argv)):
@@ -33,10 +34,7 @@ def GetArgc():
                 i = i + 1
                 file_path = sys.argv[i]
             else:
-                # print('Unknow parameter: '+ sys.argv[i] +' please use:'+ sys.argv[0]+' -h')
-                # return 0
-                # break
-                continue
+                pass
 
 if __name__ == "__main__":
     InFo()

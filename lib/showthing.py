@@ -5,10 +5,11 @@ from command import *
 
 class InFo(object):
     def __init__(self):
+        SysCleanScreen()
         printGreen('=================================================\n')
         printGreen(u'             LBT Cracker                   \n')
         printGreen('=================================================\n')
-        printGreen('Version:2.2                             By LBT   \n\n')
+        printGreen('Version:2.3                             By LBT   \n\n')
 
 class ShowSucess(object):
     def __init__(self,ac,pw):

