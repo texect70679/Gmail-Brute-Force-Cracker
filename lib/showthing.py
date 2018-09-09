@@ -9,7 +9,7 @@ class InFo(object):
         printGreen('=================================================\n')
         printGreen(u'             LBT Cracker                   \n')
         printGreen('=================================================\n')
-        printGreen('Version:2.3                             By LBT   \n\n')
+        printGreen('Version:2.4                             By LBT   \n\n')
 
 class ShowSucess(object):
     def __init__(self,ac,pw):
