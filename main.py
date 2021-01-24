@@ -14,7 +14,7 @@ def GetArgc():
     global file_path
     global mail
     if len(sys.argv) == 1:
-        printRed('\nCommand line useage:' + sys.argv[
+        printRed('\nCommand line usage:' + sys.argv[
             0] + ' ' + '[-u/--user] <User name> [-w/--wordlist] <Path of wordlist file>\n')
         file_path = raw_input("\nInput password list path \n>")
         file_path = file_path.strip()
@@ -23,7 +23,7 @@ def GetArgc():
     else:
         for i in range(1, len(sys.argv)):
             if sys.argv[i] in ['-h', '--help']:
-                printRed('\nCommand line useage:' + sys.argv[
+                printRed('\nCommand line usage:' + sys.argv[
                     0] + ' ' + '[-u/--user] <User name> [-w/--wordlist] <Path of wordlist file>\n')
                 return 0
                 break
