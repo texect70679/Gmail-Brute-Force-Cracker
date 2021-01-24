@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 from lib.printer import *
-from command import *
+from lib.command import *
 
 class InFo(object):
     def __init__(self):

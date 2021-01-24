@@ -8,7 +8,7 @@ if platform.system() == 'Windows':
     SYS_PAUSE = 'pause'
     SYS_CLEAN = 'cls'
 elif platform.system() == 'Linux':
-    SYS_PAUSE = 'pause'
+    SYS_PAUSE = 'read -p "Press enter to continue" a'
     SYS_CLEAN = 'clear'
 def SysCleanScreen():
     system(SYS_CLEAN)
