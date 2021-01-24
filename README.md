@@ -1,29 +1,15 @@
-LBT-Cracker
+## An open-source tool for Gmail password brute-force cracking.
 
-
-LBT-Cracker是一個開源的Gmail密碼暴力登入嘗試工具
-
-用法:
-main.py -u <目標電子郵件> -w <字典檔路徑>
+Usage: `main.py -u <target email address> -w <dictionary path>`
 
 版本:2.4
-更新項目:
-
-已支援linux
+- 已支援linux
 
 版本:2.3
-更新項目:
-
-修正拉入字典檔時不能包含「"」的問題
-
-節省主控台空間，使用動態輸出
-
-優化輸出
-
-源碼更正
-
+- 修正拉入字典檔時不能包含「"」的問題
+- 節省主控台空間，使用動態輸出
+- 優化輸出
+- 源碼更正
 
 版本:2.2
-更新項目:
-
-修正讀取檔案解碼問題(但仍不建議使用有問題的字典檔)
+- 修正讀取檔案解碼問題(但仍不建議使用有問題的字典檔)
